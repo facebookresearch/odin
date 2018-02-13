@@ -1,7 +1,7 @@
-# ODIN: Out-of-Distribution Detector for Neural Networks 
+# ODIN: Out-of-Distribution Detector for Neural Networks
 
 
-This is a [PyTorch](http://pytorch.org) implementation for detecting out-of-distribution examples in neural networks. The method is described in the paper [Principled Detection of Out-of-Distribution Examples in Neural Networks](https://arxiv.org/abs/1706.02690) by S. Liang, [Yixuan Li](http://www.cs.cornell.edu/~yli) and [R. Srikant](https://sites.google.com/a/illinois.edu/srikant/). The method reduces the false positive rate from the baseline 34.7% to 4.3% on the DenseNet (applied to CIFAR-10) when the true positive rate is 95%. 
+This is a [PyTorch](http://pytorch.org) implementation for detecting out-of-distribution examples in neural networks. The method is described in the paper [Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks](https://arxiv.org/abs/1706.02690) by S. Liang, [Yixuan Li](www.yixuanli.net) and [R. Srikant](https://sites.google.com/a/illinois.edu/srikant/). The method reduces the false positive rate from the baseline 34.7% to 4.3% on the DenseNet (applied to CIFAR-10) when the true positive rate is 95%.
 <p align="center">
 <img src="./figures/original_optimal_shade.png" width="500">
 </p>
@@ -26,7 +26,7 @@ DenseNet-BC     |  4.81       | 22.37
 Wide ResNet     |  3.71       | 19.86
 
 
-## Running the code 
+## Running the code
 
 ### Dependencies
 
@@ -42,8 +42,8 @@ We provide download links of five out-of-distributin datasets:
 
 * **[Tiny-ImageNet (crop)](https://www.dropbox.com/s/avgm2u562itwpkl/Imagenet.tar.gz)**
 * **[Tiny-ImageNet (resize)](https://www.dropbox.com/s/kp3my3412u5k9rl/Imagenet_resize.tar.gz)**
-* **[LSUN (crop)](https://www.dropbox.com/s/fhtsw1m3qxlwj6h/LSUN.tar.gz)** 
-* **[LSUN (resize)](https://www.dropbox.com/s/moqh2wh8696c3yl/LSUN_resize.tar.gz)** 
+* **[LSUN (crop)](https://www.dropbox.com/s/fhtsw1m3qxlwj6h/LSUN.tar.gz)**
+* **[LSUN (resize)](https://www.dropbox.com/s/moqh2wh8696c3yl/LSUN_resize.tar.gz)**
 * **[iSUN](https://www.dropbox.com/s/ssz7qxfqae0cca5/iSUN.tar.gz)**
 
 Here is an example code of downloading Tiny-ImageNet (crop) dataset. In the **root** directory, run
@@ -58,12 +58,12 @@ cd ..
 
 ### Downloading Neural Network Models
 
-We provide download links of four pre-trained models. 
+We provide download links of four pre-trained models.
 
-* **[DenseNet-BC trained on CIFAR-10](https://www.dropbox.com/s/wr4kjintq1tmorr/densenet10.pth.tar.gz)** 
+* **[DenseNet-BC trained on CIFAR-10](https://www.dropbox.com/s/wr4kjintq1tmorr/densenet10.pth.tar.gz)**
 * **[DenseNet-BC trained on CIFAR-100](https://www.dropbox.com/s/vxuv11jjg8bw2v9/densenet100.pth.tar.gz)**
 * **[Wide ResNet trained on CIFAR-10](https://www.dropbox.com/s/uiye5nw0uj6ie53/wideresnet10.pth.tar.gz)**
-* **[Wide ResNet trained on CIFAR-100](https://www.dropbox.com/s/uiye5nw0uj6ie53/wideresnet100.pth.tar.gz)** 
+* **[Wide ResNet trained on CIFAR-100](https://www.dropbox.com/s/uiye5nw0uj6ie53/wideresnet100.pth.tar.gz)**
 
 Here is an example code of downloading DenseNet-BC trained on CIFAR-10. In the **root** directory, run
 
@@ -86,11 +86,11 @@ cd code
 # magnitude: 0.0014, temperature 1000, gpu: 0
 python main.py --nn densenet10 --out_dataset Imagenet --magnitude 0.0014 --temperature 1000 --gpu 0
 ```
-**Note:** Please choose arguments according to the following. 
+**Note:** Please choose arguments according to the following.
 
 #### args
 * **args.nn**: the arguments of neural networks are shown as follows
-	
+
 	Nerual Network Models | args.nn
 	----------------------|--------
 	DenseNet-BC trained on CIFAR-10| densenet10
@@ -107,7 +107,7 @@ python main.py --nn densenet10 --out_dataset Imagenet --magnitude 0.0014 --tempe
 	Uniform random noise                | Uniform
 	Gaussian random noise               | Gaussian
 
-* **args.magnitude**: the optimal noise magnitude can be found below. In practice, the optimal choices of noise magnitude are model-specific and need to be tuned accordingly. 
+* **args.magnitude**: the optimal noise magnitude can be found below. In practice, the optimal choices of noise magnitude are model-specific and need to be tuned accordingly.
 
 	Out-of-Distribution Datasets        |   densenet10     |  densenet100  | wideresnet10   | wideresnet100
 	------------------------------------|------------------|-------------  | -------------- |--------------
@@ -119,9 +119,9 @@ python main.py --nn densenet10 --out_dataset Imagenet --magnitude 0.0014 --tempe
 	Uniform random noise                | 0.0014           | 0.0028        | 0.0014           | 0.0028
 	Gaussian random noise               | 0.0014           |0.0028         | 0.0014           | 0.0028
 
-* **args.temperature**: temperature is set to 1000 in all cases. 
+* **args.temperature**: temperature is set to 1000 in all cases.
 * **args.gpu**: make sure you use the following gpu when running the code:
-	
+
 	Neural Network Models |  args.gpu
 	----------------------|----------
 	densenet10            | 0
@@ -130,7 +130,7 @@ python main.py --nn densenet10 --out_dataset Imagenet --magnitude 0.0014 --tempe
 	wideresnet100         | 2
 
 ### Outputs
-Here is an example of output. 
+Here is an example of output.
 
 ```
 Neural network architecture:          DenseNet-BC-100
@@ -138,7 +138,7 @@ In-distribution dataset:                     CIFAR-10
 Out-of-distribution dataset:     Tiny-ImageNet (crop)
 
                           Baseline         Our Method
-FPR at TPR 95%:              34.8%               4.3% 
+FPR at TPR 95%:              34.8%               4.3%
 Detection error:              9.9%               4.6%
 AUROC:                       95.3%              99.1%
 AUPR In:                     96.4%              99.2%
