@@ -144,3 +144,6 @@ AUROC:                       95.3%              99.1%
 AUPR In:                     96.4%              99.2%
 AUPR Out:                    93.8%              99.1%
 ```
+
+### License
+ODIN is BSD-licensed. We also provide an additional patent grant.
