@@ -146,4 +146,4 @@ AUPR Out:                    93.8%              99.1%
 ```
 
 ### License
-ODIN is BSD-licensed. We also provide an additional patent grant.
+Please refer to the [LICENSE](https://github.com/facebookresearch/odin/blob/master/LICENSE).
